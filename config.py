@@ -1,16 +1,16 @@
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
+# load_dotenv()
 # https://flask.palletsprojects.com/en/2.3.x/config/
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config:
-    SECRET_KEY = os.getenv('SECRET_KEY')
+    SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_URI_DEV')
-    JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY_DEV')
 
 
 class ProductionConfig(Config):
